@@ -17,12 +17,14 @@ import {
   MatToolbarModule
 } from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import { FilterCharacterPipe } from './characters/filter-character.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    CharacterListComponent
+    CharacterListComponent,
+    FilterCharacterPipe
   ],
   imports: [
     BrowserModule,

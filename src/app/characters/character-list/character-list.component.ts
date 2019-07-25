@@ -267,6 +267,8 @@ export class CharacterListComponent implements OnInit {
   ];
   clicked = true;
   filterBy: string;
+  filteredCharacters;
+  showDetails = true;
 
   constructor() {
   }
