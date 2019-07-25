@@ -11,20 +11,22 @@ import {
   MatButtonModule,
   MatCardModule,
   MatFormFieldModule,
-  MatGridListModule,
+  MatGridListModule, MatIconModule,
   MatInputModule,
   MatListModule,
   MatToolbarModule
 } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { FilterCharacterPipe } from './characters/filter-character.pipe';
+import { ForceComponent } from './characters/force/force.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     CharacterListComponent,
-    FilterCharacterPipe
+    FilterCharacterPipe,
+    ForceComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { FilterCharacterPipe } from './characters/filter-character.pipe';
     MatInputModule,
     FormsModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

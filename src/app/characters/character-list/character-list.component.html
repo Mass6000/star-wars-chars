@@ -3,7 +3,8 @@
     <h1>{{title}}</h1>
     <mat-toolbar>
       <mat-form-field>
-        <input matInput placeholder="Filter Characters..." [(ngModel)]="filterBy" (ngModelChange)="filterCharacters($event)">
+        <input matInput placeholder="Filter Characters..." [(ngModel)]="filterBy"
+               (ngModelChange)="filterCharacters($event)">
         <!--      for multiple inputs use angular forms-->
       </mat-form-field>
       <!--    below commented line allows for debugging-->
@@ -33,6 +34,9 @@
         <img mat-card-avatar [src]="character.avatar" [title]="character.name | json" alt="character.name">
         <mat-card-title>{{character.name}}</mat-card-title>
         <mat-card-subtitle *ngIf="clicked">Force: {{character.force}}</mat-card-subtitle>
+        <mat-card-subtitle *ngIf="clicked">
+          <swc-force [forceStrength]="character.force" (onForceChanged)="onForceChange(event)"></swc-force>
+        </mat-card-subtitle>
         <mat-card-subtitle *ngIf="clicked">Birth: {{character.birth_year}}</mat-card-subtitle>
         <mat-card-subtitle *ngIf="clicked">Gender: {{character.gender}}</mat-card-subtitle>
       </mat-card-header>

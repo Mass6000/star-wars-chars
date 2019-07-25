@@ -41,3 +41,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-color: #c5b8a8;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+

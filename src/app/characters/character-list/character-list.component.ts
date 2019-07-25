@@ -269,6 +269,7 @@ export class CharacterListComponent implements OnInit {
   filterBy: string;
   filteredCharacters;
   showDetails = true;
+  strength: number;
 
   constructor() {
   }
@@ -276,9 +277,12 @@ export class CharacterListComponent implements OnInit {
   ngOnInit() {
   }
 
+  onForceChange(index: number, force: number) {
+  this.characters[index].force = this.strength;
+  }
+
   onClick() {
     this.clicked = !this.clicked;
     // console.log(this.filterBy);
   }
-
 }
