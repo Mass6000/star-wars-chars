@@ -1,18 +1,14 @@
-import { Character } from './../shared/character.model';
-import { Component, OnInit } from '@angular/core';
-import { CharacterService } from '../character.service';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Character } from './shared/character.model';
 
-@Component({
-  // tslint:disable-next-line:component-selector
-  selector: 'swc-character-list',
-  templateUrl: './character-list.component.html',
-  styleUrls: ['./character-list.component.css']
+@Injectable({
+  providedIn: 'root'
 })
-
-export class CharacterListComponent implements OnInit {
-
-  title = 'Character List';
-  characters: Character[];
+export class CharacterService {
+  selectedCharacter: Observable<Character>;
+  subscriber;
   // characters = [
   //   {
   //     id: 'luke-skywalker',
@@ -267,29 +263,23 @@ export class CharacterListComponent implements OnInit {
   //     img: 'https://s3-us-west-2.amazonaws.com/star-wars-characters/padme-amidala-lg.jpeg'
   //   }
   // ];
-  clicked = true;
-  filterBy: string;
-  filteredCharacters;
-  showDetails = true;
-  strength: number;
 
-  constructor(private characterService: CharacterService) {
+  constructor(private httpClient: HttpClient) {
+    this.selectedCharacter = new Observable(subscriber => {
+      this.subscriber = subscriber;
+    });
   }
 
-  ngOnInit() {
-    const observable = this.characterService.getCharacters();
-    observable.subscribe((characters: Character[]) => this.characters = characters)
-  };
-
-  onForceChange(index: number, force: number) {
-  this.characters[index].force = this.strength;
+  getCharacters(): Observable<any> {
+    return this.httpClient.get<Character[]>('assets/api/characters.json');
   }
 
-  onClick() {
-    this.clicked = !this.clicked;
-    // console.log(this.filterBy);
+  getSelectedCharacter(): Observable<Character> {
+    return this.selectedCharacter;
+
   }
-  onCharacterSelected(character: Character) {
-    this.characterService.setSelectedCharacter(character);
+
+  setSelectedCharacter(character: Character): void {
+    this.selectedCharacter;
   }
 }

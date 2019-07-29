@@ -19,6 +19,8 @@ import {
 import { FormsModule } from '@angular/forms';
 import { FilterCharacterPipe } from './characters/filter-character.pipe';
 import { ForceComponent } from './characters/force/force.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CharacterComponent } from './characters/character/character.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +28,13 @@ import { ForceComponent } from './characters/force/force.component';
     WelcomeComponent,
     CharacterListComponent,
     FilterCharacterPipe,
-    ForceComponent
+    ForceComponent,
+    CharacterComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatListModule,
