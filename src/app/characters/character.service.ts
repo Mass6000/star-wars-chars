@@ -280,6 +280,6 @@ export class CharacterService {
   }
 
   setSelectedCharacter(character: Character): void {
-    this.selectedCharacter;
+    this.subscriber.next(character);
   }
 }

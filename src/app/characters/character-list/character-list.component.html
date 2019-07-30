@@ -1,5 +1,5 @@
 <div>
-  <div class="flex column items-center">
+  <div class="items-center">
     <h1>{{title}}</h1>
     <mat-toolbar>
       <mat-form-field>
@@ -26,6 +26,7 @@
           <div mat-line *ngIf="clicked">
             <span>{{ character.gender }}</span>
             <span> -- {{ character.birth_year }}</span>
+            <swc-force [forceStrength]="character.force" (onForceChanged)="onForceChange(i, $event)"></swc-force>
           </div>
         </mat-list-item>
       </mat-list>
