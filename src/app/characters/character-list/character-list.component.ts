@@ -282,7 +282,7 @@ export class CharacterListComponent implements OnInit {
   };
 
   onForceChange(index: number, force: number) {
-  this.characters[index].force = this.strength;
+    this.characters[index].force = this.strength;
   }
 
   onClick() {
