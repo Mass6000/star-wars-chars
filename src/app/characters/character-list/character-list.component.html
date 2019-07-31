@@ -16,48 +16,48 @@
   </div>
 
 
-      <mat-list>
-        <mat-list-item *ngFor="let character of characters | filterCharacter:filterBy">
-          <img mat-list-avatar [src]="character.avatar"
-             [title]="character.name | json"
-             (click)="onCharacterSelected(character)"
-          />
-          <h3 mat-line>{{ character.name }}</h3>
-          <div mat-line *ngIf="clicked">
-            <span>{{ character.gender }}</span>
-            <span> -- {{ character.birth_year }}</span>
-            <swc-force [forceStrength]="character.force" (onForceChanged)="onForceChange(i, $event)"></swc-force>
-          </div>
-        </mat-list-item>
-      </mat-list>
+  <mat-list>
+    <mat-list-item *ngFor="let character of characters | filterCharacter:filterBy">
+      <img mat-list-avatar [src]="character.avatar"
+           [title]="character.name | json"
+           [routerLink]="['/character', character.id]"
+      />
+      <h3 mat-line [routerLink]="['/character', character.id]">{{ character.name }}</h3>
+      <div mat-line *ngIf="clicked">
+        <span>{{ character.gender }}</span>
+        <span> -- {{ character.birth_year }}</span>
+        <swc-force [forceStrength]="character.force" (onForceChanged)="onForceChange(i, $event)"></swc-force>
+      </div>
+    </mat-list-item>
+  </mat-list>
 
 
-<!--  <div class="flex content-space wrap color-background">-->
-<!--    <mat-card class="swc-card" *ngFor="let character of characters | filterCharacter:filterBy">-->
-<!--      <mat-card-header>-->
-<!--        <img mat-card-avatar [src]="character.avatar"-->
-<!--          [title]="character.name | json" alt="character.name"-->
-<!--          (click)="onCharacterSelected(character)"-->
-<!--        />-->
-<!--        <mat-card-title>{{character.name}}</mat-card-title>-->
-<!--        <mat-card-subtitle *ngIf="clicked">Force: {{character.force}}</mat-card-subtitle>-->
-<!--        <mat-card-subtitle *ngIf="clicked">-->
-<!--          <swc-force [forceStrength]="character.force" (onForceChanged)="onForceChange(event)"></swc-force>-->
-<!--        </mat-card-subtitle>-->
-<!--        <mat-card-subtitle *ngIf="clicked">Birth: {{character.birth_year}}</mat-card-subtitle>-->
-<!--        <mat-card-subtitle *ngIf="clicked">Gender: {{character.gender}}</mat-card-subtitle>-->
-<!--      </mat-card-header>-->
-<!--      <span *ngIf="clicked">-->
-<!--        <img class="char-img" [src]="character.img" alt="Image of {{character.name}}">-->
-<!--      </span>-->
-<!--      <mat-card-content *ngIf="clicked" class="flex column items-center">-->
-<!--        <p>Height: {{character.height}}</p>-->
-<!--        <p>Mass: {{character.mass}}</p>-->
-<!--        <p>Hair Color: {{character.hair_color}}</p>-->
-<!--        <p>Skin Color: {{character.skin_color}}</p>-->
-<!--      </mat-card-content>-->
-<!--    </mat-card>-->
-<!--  </div>-->
+  <!--  <div class="flex content-space wrap color-background">-->
+  <!--    <mat-card class="swc-card" *ngFor="let character of characters | filterCharacter:filterBy">-->
+  <!--      <mat-card-header>-->
+  <!--        <img mat-card-avatar [src]="character.avatar"-->
+  <!--          [title]="character.name | json" alt="character.name"-->
+  <!--          (click)="onCharacterSelected(character)"-->
+  <!--        />-->
+  <!--        <mat-card-title>{{character.name}}</mat-card-title>-->
+  <!--        <mat-card-subtitle *ngIf="clicked">Force: {{character.force}}</mat-card-subtitle>-->
+  <!--        <mat-card-subtitle *ngIf="clicked">-->
+  <!--          <swc-force [forceStrength]="character.force" (onForceChanged)="onForceChange(event)"></swc-force>-->
+  <!--        </mat-card-subtitle>-->
+  <!--        <mat-card-subtitle *ngIf="clicked">Birth: {{character.birth_year}}</mat-card-subtitle>-->
+  <!--        <mat-card-subtitle *ngIf="clicked">Gender: {{character.gender}}</mat-card-subtitle>-->
+  <!--      </mat-card-header>-->
+  <!--      <span *ngIf="clicked">-->
+  <!--        <img class="char-img" [src]="character.img" alt="Image of {{character.name}}">-->
+  <!--      </span>-->
+  <!--      <mat-card-content *ngIf="clicked" class="flex column items-center">-->
+  <!--        <p>Height: {{character.height}}</p>-->
+  <!--        <p>Mass: {{character.mass}}</p>-->
+  <!--        <p>Hair Color: {{character.hair_color}}</p>-->
+  <!--        <p>Skin Color: {{character.skin_color}}</p>-->
+  <!--      </mat-card-content>-->
+  <!--    </mat-card>-->
+  <!--  </div>-->
 
 </div>
 

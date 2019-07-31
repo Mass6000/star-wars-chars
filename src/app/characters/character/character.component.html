@@ -1,2 +1,6 @@
-<img *ngIf="character" [src]="character?.img"/>
+<!--<img *ngIf="character" [src]="character?.img"/>-->
+<button mat-stroked-button (click)="goBack()">Back</button>
+<div>
+  <img *ngIf="character" class="make-smaller" [src]="character?.img" alt="">
+</div>
 

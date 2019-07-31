@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Character } from './shared/character.model';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -274,9 +275,17 @@ export class CharacterService {
     return this.httpClient.get<Character[]>('assets/api/characters.json');
   }
 
+  getCharacter(id: string): Observable<Character> {
+    return this.getCharacters().pipe(
+      map(
+        (characters: Character[]) => {
+          return characters.find(character => character.id === id);
+        })
+    );
+  }
+
   getSelectedCharacter(): Observable<Character> {
     return this.selectedCharacter;
-
   }
 
   setSelectedCharacter(character: Character): void {
